@@ -1185,7 +1185,7 @@ details.a-disclosure[open] > summary::before {
       <header class="a-header">
         <div>
           <h1 class="a-header__title">Compuertas lógicas: AND, NOR y XOR</h1>
-          <p class="a-header__subtitle">Toca los interruptores y mira cómo cambian las salidas.</p>
+          <p class="a-header__subtitle">Toca los interruptores y mira cómo cambian las salidas y las propiedades.</p>
         </div>
         <button
           type="button"
@@ -1236,13 +1236,13 @@ details.a-disclosure[open] > summary::before {
   <div class="a-panel" style="margin-top:16px">
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center">
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--a-muted)">Entrada A</div>
-        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid var(--a-border);border-radius:16px;background:var(--a-surface);color:var(--a-text);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">Entrada A</div>
+        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid var(--border-primary);border-radius:16px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
       </div>
-      <div style="font-size:42px;font-weight:800;color:var(--a-muted)" aria-hidden="true">→</div>
+      <div style="font-size:42px;font-weight:800;color:var(--text-secondary)" aria-hidden="true">→</div>
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--a-muted)">Entrada B</div>
-        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid var(--a-border);border-radius:16px;background:var(--a-surface);color:var(--a-text);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">Entrada B</div>
+        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid var(--border-primary);border-radius:16px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
       </div>
     </div>
     <p class="a-section__note" style="text-align:center;margin-top:14px">Cada botón alterna entre 0 y 1. Abajo cambian las tres salidas.</p>
@@ -1316,9 +1316,44 @@ details.a-disclosure[open] > summary::before {
   </div>
 </div>
 
+<div class="a-section">
+  <h2 class="a-section__title">5. Propiedades de AND y OR</h2>
+  <p class="a-prose">Una propiedad es una regla que <b>siempre</b> se cumple, sin importar si A, B o C valen 0 o 1. Cambia los interruptores y comprueba que cada regla sigue funcionando.</p>
+
+  <div class="a-panel" style="margin-top:16px">
+    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center">
+      <div style="text-align:center">
+        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">A</div>
+        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid var(--border-primary);border-radius:14px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">B</div>
+        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid var(--border-primary);border-radius:14px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">C (para asociatividad)</div>
+        <button type="button" class="logic-toggle" data-input="c" aria-label="Entrada C" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid var(--border-primary);border-radius:14px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+      </div>
+    </div>
+    <p class="a-section__note" style="text-align:center;margin-top:12px">Son los mismos A y B de arriba: si cambias uno aquí, también cambia arriba.</p>
+  </div>
+
+  <div role="group" aria-label="Elegir operador" style="display:flex;gap:8px;justify-content:center;margin:20px 0 12px">
+    <button type="button" class="op-pick" data-op="and" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid var(--border-primary);border-radius:12px;cursor:pointer">AND (·)</button>
+    <button type="button" class="op-pick" data-op="or" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid var(--border-primary);border-radius:12px;cursor:pointer">OR (+)</button>
+  </div>
+  <p class="a-section__note" data-op-summary style="text-align:center"></p>
+
+  <div class="a-grid" data-props style="margin-top:12px"></div>
+
+  <div class="a-callout" style="margin-top:16px">
+    <b>Fíjate en el espejo:</b> AND y OR tienen las mismas propiedades, pero 0 y 1 intercambian sus papeles. En AND, 1 es neutro y 0 absorbe. En OR, 0 es neutro y 1 absorbe.
+  </div>
+</div>
+
 <script>
 (function () {
-  const state = { a: 0, b: 0 };
+  const state = { a: 0, b: 0, c: 0 };
   const toggles = document.querySelectorAll('.logic-toggle');
   const results = {
     and: document.querySelector('[data-result="and"]'),
@@ -1331,15 +1366,84 @@ details.a-disclosure[open] > summary::before {
     xor: document.querySelector('[data-explain="xor"]')
   };
 
+
+  const props = {
+    and: {
+      summary: 'AND es como multiplicar: 1·1 = 1 y cualquier cosa por 0 da 0.',
+      list: [
+        { name: 'Elemento neutro', rule: 'A · 1 = A', idea: 'El 1 no cambia nada: el resultado es A.',
+          calc: (v) => ({ left: `${v.a} · 1`, lv: v.a & 1, right: 'A', rv: v.a }) },
+        { name: 'Elemento absorbente', rule: 'A · 0 = 0', idea: 'El 0 se “come” todo: el resultado siempre es 0.',
+          calc: (v) => ({ left: `${v.a} · 0`, lv: v.a & 0, right: '0', rv: 0 }) },
+        { name: 'Idempotencia', rule: 'A · A = A', idea: 'Repetir A no cambia el resultado.',
+          calc: (v) => ({ left: `${v.a} · ${v.a}`, lv: v.a & v.a, right: 'A', rv: v.a }) },
+        { name: 'Complemento', rule: 'A · Ā = 0', idea: 'A y su opuesto nunca valen 1 a la vez.',
+          calc: (v) => ({ left: `${v.a} · ${1 - v.a}`, lv: v.a & (1 - v.a), right: '0', rv: 0 }) },
+        { name: 'Conmutatividad', rule: 'A · B = B · A', idea: 'El orden de las entradas no importa.',
+          calc: (v) => ({ left: `${v.a} · ${v.b}`, lv: v.a & v.b, right: `${v.b} · ${v.a}`, rv: v.b & v.a }) },
+        { name: 'Asociatividad', rule: '(A · B) · C = A · (B · C)', idea: 'Puedes agrupar como quieras.',
+          calc: (v) => ({ left: `(${v.a} · ${v.b}) · ${v.c}`, lv: (v.a & v.b) & v.c, right: `${v.a} · (${v.b} · ${v.c})`, rv: v.a & (v.b & v.c) }) }
+      ]
+    },
+    or: {
+      summary: 'OR es como sumar, pero con tope: si hay al menos un 1, el resultado es 1 (1 + 1 = 1).',
+      list: [
+        { name: 'Elemento neutro', rule: 'A + 0 = A', idea: 'El 0 no cambia nada: el resultado es A.',
+          calc: (v) => ({ left: `${v.a} + 0`, lv: v.a | 0, right: 'A', rv: v.a }) },
+        { name: 'Elemento absorbente', rule: 'A + 1 = 1', idea: 'El 1 se “come” todo: el resultado siempre es 1.',
+          calc: (v) => ({ left: `${v.a} + 1`, lv: v.a | 1, right: '1', rv: 1 }) },
+        { name: 'Idempotencia', rule: 'A + A = A', idea: 'Repetir A no cambia el resultado.',
+          calc: (v) => ({ left: `${v.a} + ${v.a}`, lv: v.a | v.a, right: 'A', rv: v.a }) },
+        { name: 'Complemento', rule: 'A + Ā = 1', idea: 'A o su opuesto: uno de los dos siempre vale 1.',
+          calc: (v) => ({ left: `${v.a} + ${1 - v.a}`, lv: v.a | (1 - v.a), right: '1', rv: 1 }) },
+        { name: 'Conmutatividad', rule: 'A + B = B + A', idea: 'El orden de las entradas no importa.',
+          calc: (v) => ({ left: `${v.a} + ${v.b}`, lv: v.a | v.b, right: `${v.b} + ${v.a}`, rv: v.b | v.a }) },
+        { name: 'Asociatividad', rule: '(A + B) + C = A + (B + C)', idea: 'Puedes agrupar como quieras.',
+          calc: (v) => ({ left: `(${v.a} + ${v.b}) + ${v.c}`, lv: (v.a | v.b) | v.c, right: `${v.a} + (${v.b} + ${v.c})`, rv: v.a | (v.b | v.c) }) }
+      ]
+    }
+  };
+  let op = 'and';
+  const propsBox = document.querySelector('[data-props]');
+  const opSummary = document.querySelector('[data-op-summary]');
+  const opButtons = document.querySelectorAll('.op-pick');
+
+  function paintProps() {
+    opButtons.forEach((b) => {
+      const on = b.dataset.op === op;
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+      b.style.background = on ? '#2563eb' : 'var(--bg-elevated)';
+      b.style.color = on ? '#ffffff' : 'var(--text-primary)';
+      b.style.borderColor = on ? '#2563eb' : 'var(--border-primary)';
+    });
+    opSummary.textContent = props[op].summary;
+    propsBox.innerHTML = '';
+    props[op].list.forEach((p) => {
+      const r = p.calc(state);
+      const rightText = /^[01]$/.test(r.right) ? r.right : (r.right === 'A' ? `A = ${r.rv}` : `${r.right} = ${r.rv}`);
+      const card = document.createElement('article');
+      card.className = 'a-panel';
+      card.innerHTML =
+        `<h3 class="a-panel__title">${p.name}</h3>` +
+        `<div style="font-family:ui-monospace,Menlo,monospace;font-size:20px;font-weight:800;margin:10px 0">${p.rule}</div>` +
+        `<p>${p.idea}</p>` +
+        `<div style="margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--bg-wash);font-family:var(--font-mono);font-size:14px;line-height:1.6">` +
+        `<div>Izquierda: ${r.left} = <b>${r.lv}</b></div><div>Derecha: ${rightText}</div>` +
+        `<div style="margin-top:6px;font-family:inherit;font-weight:700">${r.lv === r.rv ? '✓ Se cumple' : '✗ No se cumple'}</div></div>`;
+      propsBox.appendChild(card);
+    });
+  }
+  opButtons.forEach((b) => b.addEventListener('click', () => { op = b.dataset.op; paintProps(); }));
+
   function paint() {
     toggles.forEach((button) => {
       const key = button.dataset.input;
       const on = state[key] === 1;
       button.textContent = String(state[key]);
       button.setAttribute('aria-pressed', on ? 'true' : 'false');
-      button.style.background = on ? '#2563eb' : 'var(--a-surface)';
-      button.style.color = on ? '#ffffff' : 'var(--a-text)';
-      button.style.borderColor = on ? '#2563eb' : 'var(--a-border)';
+      button.style.background = on ? '#2563eb' : 'var(--bg-elevated)';
+      button.style.color = on ? '#ffffff' : 'var(--text-primary)';
+      button.style.borderColor = on ? '#2563eb' : 'var(--border-primary)';
     });
 
     const and = state.a && state.b;
@@ -1353,6 +1457,7 @@ details.a-disclosure[open] > summary::before {
     explains.and.textContent = and ? 'Sí: ambas entradas están activas.' : 'No: falta al menos una entrada.';
     explains.nor.textContent = nor ? 'Sí: ninguna entrada está activa.' : 'No: hay al menos una entrada activa.';
     explains.xor.textContent = xor ? 'Sí: las entradas son diferentes.' : 'No: las entradas son iguales.';
+    paintProps();
   }
 
   toggles.forEach((button) => {
