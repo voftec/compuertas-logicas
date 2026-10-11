@@ -1236,13 +1236,13 @@ details.a-disclosure[open] > summary::before {
   <div class="a-panel" style="margin-top:16px">
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center">
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">Entrada A</div>
-        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid var(--border-primary);border-radius:16px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">Entrada A</div>
+        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:16px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
       </div>
-      <div style="font-size:42px;font-weight:800;color:var(--text-secondary)" aria-hidden="true">→</div>
+      <div style="font-size:42px;font-weight:800;color:rgb(var(--text-secondary))" aria-hidden="true">→</div>
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">Entrada B</div>
-        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid var(--border-primary);border-radius:16px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">Entrada B</div>
+        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:16px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
       </div>
     </div>
     <p class="a-section__note" style="text-align:center;margin-top:14px">Cada botón alterna entre 0 y 1. Abajo cambian las tres salidas.</p>
@@ -1323,24 +1323,24 @@ details.a-disclosure[open] > summary::before {
   <div class="a-panel" style="margin-top:16px">
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center">
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">A</div>
-        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid var(--border-primary);border-radius:14px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">A</div>
+        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:14px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
       </div>
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">B</div>
-        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid var(--border-primary);border-radius:14px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">B</div>
+        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:14px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
       </div>
       <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:var(--text-secondary)">C (para asociatividad)</div>
-        <button type="button" class="logic-toggle" data-input="c" aria-label="Entrada C" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid var(--border-primary);border-radius:14px;background:var(--bg-elevated);color:var(--text-primary);cursor:pointer">0</button>
+        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">C (para asociatividad)</div>
+        <button type="button" class="logic-toggle" data-input="c" aria-label="Entrada C" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:14px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
       </div>
     </div>
     <p class="a-section__note" style="text-align:center;margin-top:12px">Son los mismos A y B de arriba: si cambias uno aquí, también cambia arriba.</p>
   </div>
 
   <div role="group" aria-label="Elegir operador" style="display:flex;gap:8px;justify-content:center;margin:20px 0 12px">
-    <button type="button" class="op-pick" data-op="and" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid var(--border-primary);border-radius:12px;cursor:pointer">AND (·)</button>
-    <button type="button" class="op-pick" data-op="or" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid var(--border-primary);border-radius:12px;cursor:pointer">OR (+)</button>
+    <button type="button" class="op-pick" data-op="and" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:12px;cursor:pointer">AND (·)</button>
+    <button type="button" class="op-pick" data-op="or" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:12px;cursor:pointer">OR (+)</button>
   </div>
   <p class="a-section__note" data-op-summary style="text-align:center"></p>
 
@@ -1412,9 +1412,9 @@ details.a-disclosure[open] > summary::before {
     opButtons.forEach((b) => {
       const on = b.dataset.op === op;
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      b.style.background = on ? '#2563eb' : 'var(--bg-elevated)';
-      b.style.color = on ? '#ffffff' : 'var(--text-primary)';
-      b.style.borderColor = on ? '#2563eb' : 'var(--border-primary)';
+      b.style.background = on ? '#2563eb' : 'rgb(var(--bg-elevated))';
+      b.style.color = on ? '#ffffff' : 'rgb(var(--text-primary))';
+      b.style.borderColor = on ? '#2563eb' : 'rgb(var(--text-tertiary))';
     });
     opSummary.textContent = props[op].summary;
     propsBox.innerHTML = '';
@@ -1427,7 +1427,7 @@ details.a-disclosure[open] > summary::before {
         `<h3 class="a-panel__title">${p.name}</h3>` +
         `<div style="font-family:ui-monospace,Menlo,monospace;font-size:20px;font-weight:800;margin:10px 0">${p.rule}</div>` +
         `<p>${p.idea}</p>` +
-        `<div style="margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--bg-wash);font-family:var(--font-mono);font-size:14px;line-height:1.6">` +
+        `<div style="margin-top:10px;padding:10px 12px;border-radius:10px;background:rgb(var(--bg-wash));font-family:var(--font-mono);font-size:14px;line-height:1.6">` +
         `<div>Izquierda: ${r.left} = <b>${r.lv}</b></div><div>Derecha: ${rightText}</div>` +
         `<div style="margin-top:6px;font-family:inherit;font-weight:700">${r.lv === r.rv ? '✓ Se cumple' : '✗ No se cumple'}</div></div>`;
       propsBox.appendChild(card);
@@ -1441,9 +1441,9 @@ details.a-disclosure[open] > summary::before {
       const on = state[key] === 1;
       button.textContent = String(state[key]);
       button.setAttribute('aria-pressed', on ? 'true' : 'false');
-      button.style.background = on ? '#2563eb' : 'var(--bg-elevated)';
-      button.style.color = on ? '#ffffff' : 'var(--text-primary)';
-      button.style.borderColor = on ? '#2563eb' : 'var(--border-primary)';
+      button.style.background = on ? '#2563eb' : 'rgb(var(--bg-elevated))';
+      button.style.color = on ? '#ffffff' : 'rgb(var(--text-primary))';
+      button.style.borderColor = on ? '#2563eb' : 'rgb(var(--text-tertiary))';
     });
 
     const and = state.a && state.b;
