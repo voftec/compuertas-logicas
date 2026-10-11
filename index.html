@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content="Devin artifact kit" />
-    <title>Compuertas lógicas: AND, NOR y XOR</title>
+    <title>Compuertas lógicas para chicos</title>
     <style>
 /* Devin artifact kit — self-contained styles for standalone HTML artifacts.
    Tokens are translated from the Devin product design system. Light is the
@@ -1184,8 +1184,8 @@ details.a-disclosure[open] > summary::before {
     <main class="a-shell">
       <header class="a-header">
         <div>
-          <h1 class="a-header__title">Compuertas lógicas: AND, NOR y XOR</h1>
-          <p class="a-header__subtitle">Toca los interruptores y mira cómo cambian las salidas y las propiedades.</p>
+          <h1 class="a-header__title">Compuertas lógicas para chicos</h1>
+          <p class="a-header__subtitle">Prende A y B, mira la luz Z y juega a completar la tabla.</p>
         </div>
         <button
           type="button"
@@ -1229,251 +1229,223 @@ details.a-disclosure[open] > summary::before {
         </p>
       </section>
 
-<div class="a-section">
-  <h2 class="a-section__title">1. Toca un interruptor</h2>
-  <p class="a-prose">Una compuerta recibe ceros y unos, y devuelve cero o uno. Piensa en <b>0</b> como <i>no</i> y en <b>1</b> como <i>sí</i>.</p>
+<style>
+  .k-row{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;align-items:flex-end}
+  .k-sw{display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:800;font-size:18px}
+  .k-sw button{width:96px;height:72px;font-size:38px;font-weight:900;border-radius:18px;cursor:pointer;border:3px solid rgb(var(--text-tertiary));background:rgb(var(--bg-elevated));color:rgb(var(--text-primary))}
+  .k-sw button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+  .k-gates{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+  .k-gate{text-align:center;padding:16px 10px}
+  .k-gate h3{margin:0;font-size:22px;font-weight:900}
+  .k-hint{font-size:15px;color:rgb(var(--text-secondary));margin:4px 0 10px;min-height:20px}
+  .k-lamp{width:64px;height:64px;border-radius:50%;margin:0 auto;border:3px solid rgb(var(--text-tertiary));background:transparent}
+  .k-lamp[data-on="1"]{background:#facc15;border-color:#ca8a04;box-shadow:0 0 22px #facc15}
+  .k-z{font-size:24px;font-weight:900;margin-top:8px}
+  .k-pick{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:6px 0 14px}
+  .k-pick button,.k-act button{padding:10px 18px;font-size:17px;font-weight:800;border-radius:12px;cursor:pointer;border:2px solid rgb(var(--text-tertiary));background:rgb(var(--bg-elevated));color:rgb(var(--text-primary))}
+  .k-pick button[aria-pressed="true"]{background:#2563eb;border-color:#2563eb;color:#fff}
+  .k-act{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin-top:14px}
+  .k-act button.k-main{background:#16a34a;border-color:#16a34a;color:#fff}
+  .k-table{margin:0 auto;border-collapse:separate;border-spacing:6px;font-size:26px;font-weight:900;text-align:center}
+  .k-table th{font-size:20px;color:rgb(var(--text-secondary));padding:4px 14px}
+  .k-table td{padding:6px 14px;border-radius:12px;background:rgb(var(--bg-wash))}
+  .k-table tr.k-now td{outline:3px solid #2563eb}
+  .k-table tr.k-now td.k-res,.k-table tr.k-now td.k-zc{outline:none}
+  .k-table td.k-zc{padding:0;background:transparent}
+  .k-zb{width:72px;height:52px;font-size:26px;font-weight:900;border-radius:12px;cursor:pointer;border:3px dashed rgb(var(--text-tertiary));background:rgb(var(--bg-elevated));color:rgb(var(--text-primary))}
+  .k-zb[data-v="0"],.k-zb[data-v="1"]{border-style:solid}
+  .k-res{width:40px;background:transparent!important;font-size:26px}
+  .k-ok{color:#16a34a}.k-bad{color:#dc2626}
+  .k-score{text-align:center;font-size:22px;font-weight:900;min-height:30px;margin-top:10px}
+  .k-props{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+  .k-prop{padding:14px}
+  .k-prop h3{margin:0 0 4px;font-size:17px;font-weight:900}
+  .k-what{font-size:14px;color:rgb(var(--text-secondary));margin:0 0 8px}
+  .k-formula{font-family:var(--font-mono);font-size:17px;font-weight:800;margin-bottom:8px}
+  .k-live{font-family:var(--font-mono);font-size:14px;line-height:1.6;padding:8px 10px;border-radius:10px;background:rgb(var(--bg-wash))}
+  .k-badge{display:inline-block;margin-top:8px;padding:4px 10px;border-radius:999px;font-weight:900;font-size:14px;color:#fff}
+  .k-badge[data-ok="1"]{background:#16a34a}.k-badge[data-ok="0"]{background:#dc2626}
+  .k-note{font-size:13px;margin-top:6px;color:rgb(var(--text-secondary))}
+</style>
 
-  <div class="a-panel" style="margin-top:16px">
-    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center">
-      <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">Entrada A</div>
-        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:16px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
-      </div>
-      <div style="font-size:42px;font-weight:800;color:rgb(var(--text-secondary))" aria-hidden="true">→</div>
-      <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">Entrada B</div>
-        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:116px;height:64px;font-size:34px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:16px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
-      </div>
-    </div>
-    <p class="a-section__note" style="text-align:center;margin-top:14px">Cada botón alterna entre 0 y 1. Abajo cambian las tres salidas.</p>
+<div class="a-section">
+  <h2 class="a-section__title">1. Prende y apaga</h2>
+  <p class="a-prose" style="text-align:center"><b>0</b> = apagado · <b>1</b> = prendido</p>
+  <div class="k-row" style="margin:14px 0 20px">
+    <div class="k-sw">A<button type="button" data-k="a" aria-label="Interruptor A">0</button></div>
+    <div class="k-sw">B<button type="button" data-k="b" aria-label="Interruptor B">0</button></div>
   </div>
+  <div class="k-gates" data-gates></div>
 </div>
 
 <div class="a-section">
-  <h2 class="a-section__title">2. Mira las salidas</h2>
-  <div class="a-grid">
-    <article class="a-panel gate-card" data-gate="and">
-      <div class="a-panel__head">
-        <h3 class="a-panel__title">AND</h3>
-      </div>
-      <p><b>Idea:</b> solo dice <b>1</b> si A y B son 1.</p>
-      <p><b>Ejemplo:</b> ¿Entras si tienes llave y contraseña? Solo cuando ambas están activas.</p>
-      <div class="gate-result" data-result="and" style="margin-top:14px;font-size:42px;font-weight:900">0</div>
-      <p class="a-section__note gate-explain" data-explain="and"></p>
-    </article>
-    <article class="a-panel gate-card" data-gate="nor">
-      <div class="a-panel__head">
-        <h3 class="a-panel__title">NOR</h3>
-      </div>
-      <p><b>Idea:</b> es lo contrario de OR. Solo da <b>1</b> cuando ambas entradas son 0.</p>
-      <p><b>Ejemplo:</b> “No se prendió la luz ni el ventilador.” Todo apagado.</p>
-      <div class="gate-result" data-result="nor" style="margin-top:14px;font-size:42px;font-weight:900">1</div>
-      <p class="a-section__note gate-explain" data-explain="nor"></p>
-    </article>
-    <article class="a-panel gate-card" data-gate="xor">
-      <div class="a-panel__head">
-        <h3 class="a-panel__title">XOR / EX-OR</h3>
-      </div>
-      <p><b>Idea:</b> da <b>1</b> cuando A y B son diferentes.</p>
-      <p><b>Ejemplo:</b> uno enciende y el otro apaga, entonces sí hay cambio.</p>
-      <div class="gate-result" data-result="xor" style="margin-top:14px;font-size:42px;font-weight:900">0</div>
-      <p class="a-section__note gate-explain" data-explain="xor"></p>
-    </article>
+  <h2 class="a-section__title">2. Juego: encuentra Z</h2>
+  <div class="k-pick" role="group" aria-label="Elegir compuerta del juego" data-game-pick></div>
+  <p class="k-hint" style="text-align:center" data-game-hint></p>
+  <table class="k-table">
+    <caption class="a-visually-hidden">Tabla de verdad para completar</caption>
+    <thead><tr><th scope="col">A</th><th scope="col">B</th><th scope="col">Z</th><th scope="col"><span class="a-visually-hidden">Resultado</span></th></tr></thead>
+    <tbody data-game-rows></tbody>
+  </table>
+  <p class="k-hint" style="text-align:center">Toca cada <b>?</b> para poner 0 o 1.</p>
+  <div class="k-act">
+    <button type="button" class="k-main" data-game="check">Comprobar</button>
+    <button type="button" data-game="reset">Borrar</button>
+    <button type="button" data-game="show">Ver respuesta</button>
   </div>
+  <div class="k-score" aria-live="polite" data-game-score></div>
 </div>
 
 <div class="a-section">
-  <h2 class="a-section__title">3. Truco para memorizar</h2>
-  <div class="a-callout">
-    <b>AND:</b> “ambas” · <b>NOR:</b> “ninguna” · <b>XOR:</b> “distintas”. Esa frase resuelve la mayoría de ejercicios antes de hacer la tabla completa.
+  <h2 class="a-section__title">3. Reglas de cada compuerta</h2>
+  <div class="k-pick" role="group" aria-label="Elegir compuerta de las reglas" data-prop-pick></div>
+  <div class="k-row" style="margin:6px 0 16px">
+    <div class="k-sw">A<button type="button" data-k="a" aria-label="Interruptor A">0</button></div>
+    <div class="k-sw">B<button type="button" data-k="b" aria-label="Interruptor B">0</button></div>
+    <div class="k-sw">C<button type="button" data-k="c" aria-label="Interruptor C">0</button></div>
   </div>
-</div>
-
-<div class="a-section">
-  <h2 class="a-section__title">4. Tablas de verdad</h2>
-  <div class="a-grid">
-    <div class="a-table-scroll">
-      <table class="a-table">
-        <caption class="a-visually-hidden">Tabla AND</caption>
-        <thead><tr><th>A</th><th>B</th><th>AND</th></tr></thead>
-        <tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td><b>1</b></td></tr></tbody>
-      </table>
-    </div>
-    <div class="a-table-scroll">
-      <table class="a-table">
-        <caption class="a-visually-hidden">Tabla NOR</caption>
-        <thead><tr><th>A</th><th>B</th><th>NOR</th></tr></thead>
-        <tbody><tr><td>0</td><td>0</td><td><b>1</b></td></tr><tr><td>0</td><td>1</td><td>0</td></tr><tr><td>1</td><td>0</td><td>0</td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody>
-      </table>
-    </div>
-    <div class="a-table-scroll">
-      <table class="a-table">
-        <caption class="a-visually-hidden">Tabla XOR</caption>
-        <thead><tr><th>A</th><th>B</th><th>XOR</th></tr></thead>
-        <tbody><tr><td>0</td><td>0</td><td>0</td></tr><tr><td>0</td><td>1</td><td><b>1</b></td></tr><tr><td>1</td><td>0</td><td><b>1</b></td></tr><tr><td>1</td><td>1</td><td>0</td></tr></tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="a-section">
-  <h2 class="a-section__title">5. Propiedades de AND y OR</h2>
-  <p class="a-prose">Una propiedad es una regla que <b>siempre</b> se cumple, sin importar si A, B o C valen 0 o 1. Cambia los interruptores y comprueba que cada regla sigue funcionando.</p>
-
-  <div class="a-panel" style="margin-top:16px">
-    <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center">
-      <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">A</div>
-        <button type="button" class="logic-toggle" data-input="a" aria-label="Entrada A" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:14px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
-      </div>
-      <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">B</div>
-        <button type="button" class="logic-toggle" data-input="b" aria-label="Entrada B" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:14px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
-      </div>
-      <div style="text-align:center">
-        <div style="font-size:14px;margin-bottom:8px;color:rgb(var(--text-secondary))">C (para asociatividad)</div>
-        <button type="button" class="logic-toggle" data-input="c" aria-label="Entrada C" style="width:96px;height:56px;font-size:30px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:14px;background:rgb(var(--bg-elevated));color:rgb(var(--text-primary));cursor:pointer">0</button>
-      </div>
-    </div>
-    <p class="a-section__note" style="text-align:center;margin-top:12px">Son los mismos A y B de arriba: si cambias uno aquí, también cambia arriba.</p>
-  </div>
-
-  <div role="group" aria-label="Elegir operador" style="display:flex;gap:8px;justify-content:center;margin:20px 0 12px">
-    <button type="button" class="op-pick" data-op="and" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:12px;cursor:pointer">AND (·)</button>
-    <button type="button" class="op-pick" data-op="or" style="padding:10px 22px;font-size:17px;font-weight:800;border:2px solid rgb(var(--text-tertiary));border-radius:12px;cursor:pointer">OR (+)</button>
-  </div>
-  <p class="a-section__note" data-op-summary style="text-align:center"></p>
-
-  <div class="a-grid" data-props style="margin-top:12px"></div>
-
-  <div class="a-callout" style="margin-top:16px">
-    <b>Fíjate en el espejo:</b> AND y OR tienen las mismas propiedades, pero 0 y 1 intercambian sus papeles. En AND, 1 es neutro y 0 absorbe. En OR, 0 es neutro y 1 absorbe.
-  </div>
+  <div class="k-props" data-props></div>
 </div>
 
 <script>
 (function () {
-  const state = { a: 0, b: 0, c: 0 };
-  const toggles = document.querySelectorAll('.logic-toggle');
-  const results = {
-    and: document.querySelector('[data-result="and"]'),
-    nor: document.querySelector('[data-result="nor"]'),
-    xor: document.querySelector('[data-result="xor"]')
+  const S = { a: 0, b: 0, c: 0 };
+  const OPS = {
+    AND: { f: (a, b) => a & b, hint: 'Z = 1 solo si A y B son 1' },
+    OR:  { f: (a, b) => a | b, hint: 'Z = 1 si alguna es 1' },
+    NOR: { f: (a, b) => 1 - (a | b), hint: 'Z = 1 solo si las dos son 0' },
+    XOR: { f: (a, b) => a ^ b, hint: 'Z = 1 si son distintas' }
   };
-  const explains = {
-    and: document.querySelector('[data-explain="and"]'),
-    nor: document.querySelector('[data-explain="nor"]'),
-    xor: document.querySelector('[data-explain="xor"]')
-  };
+  const ROWS = [[0, 0], [0, 1], [1, 0], [1, 1]];
+  const NOT = (x) => 1 - x;
 
+  function pickers(box, list, current, onPick) {
+    box.innerHTML = '';
+    list.forEach((name) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.textContent = name;
+      b.setAttribute('aria-pressed', name === current ? 'true' : 'false');
+      b.addEventListener('click', () => onPick(name));
+      box.appendChild(b);
+    });
+  }
 
-  const props = {
-    and: {
-      summary: 'AND es como multiplicar: 1·1 = 1 y cualquier cosa por 0 da 0.',
-      list: [
-        { name: 'Elemento neutro', rule: 'A · 1 = A', idea: 'El 1 no cambia nada: el resultado es A.',
-          calc: (v) => ({ left: `${v.a} · 1`, lv: v.a & 1, right: 'A', rv: v.a }) },
-        { name: 'Elemento absorbente', rule: 'A · 0 = 0', idea: 'El 0 se “come” todo: el resultado siempre es 0.',
-          calc: (v) => ({ left: `${v.a} · 0`, lv: v.a & 0, right: '0', rv: 0 }) },
-        { name: 'Idempotencia', rule: 'A · A = A', idea: 'Repetir A no cambia el resultado.',
-          calc: (v) => ({ left: `${v.a} · ${v.a}`, lv: v.a & v.a, right: 'A', rv: v.a }) },
-        { name: 'Complemento', rule: 'A · Ā = 0', idea: 'A y su opuesto nunca valen 1 a la vez.',
-          calc: (v) => ({ left: `${v.a} · ${1 - v.a}`, lv: v.a & (1 - v.a), right: '0', rv: 0 }) },
-        { name: 'Conmutatividad', rule: 'A · B = B · A', idea: 'El orden de las entradas no importa.',
-          calc: (v) => ({ left: `${v.a} · ${v.b}`, lv: v.a & v.b, right: `${v.b} · ${v.a}`, rv: v.b & v.a }) },
-        { name: 'Asociatividad', rule: '(A · B) · C = A · (B · C)', idea: 'Puedes agrupar como quieras.',
-          calc: (v) => ({ left: `(${v.a} · ${v.b}) · ${v.c}`, lv: (v.a & v.b) & v.c, right: `${v.a} · (${v.b} · ${v.c})`, rv: v.a & (v.b & v.c) }) }
-      ]
-    },
-    or: {
-      summary: 'OR es como sumar, pero con tope: si hay al menos un 1, el resultado es 1 (1 + 1 = 1).',
-      list: [
-        { name: 'Elemento neutro', rule: 'A + 0 = A', idea: 'El 0 no cambia nada: el resultado es A.',
-          calc: (v) => ({ left: `${v.a} + 0`, lv: v.a | 0, right: 'A', rv: v.a }) },
-        { name: 'Elemento absorbente', rule: 'A + 1 = 1', idea: 'El 1 se “come” todo: el resultado siempre es 1.',
-          calc: (v) => ({ left: `${v.a} + 1`, lv: v.a | 1, right: '1', rv: 1 }) },
-        { name: 'Idempotencia', rule: 'A + A = A', idea: 'Repetir A no cambia el resultado.',
-          calc: (v) => ({ left: `${v.a} + ${v.a}`, lv: v.a | v.a, right: 'A', rv: v.a }) },
-        { name: 'Complemento', rule: 'A + Ā = 1', idea: 'A o su opuesto: uno de los dos siempre vale 1.',
-          calc: (v) => ({ left: `${v.a} + ${1 - v.a}`, lv: v.a | (1 - v.a), right: '1', rv: 1 }) },
-        { name: 'Conmutatividad', rule: 'A + B = B + A', idea: 'El orden de las entradas no importa.',
-          calc: (v) => ({ left: `${v.a} + ${v.b}`, lv: v.a | v.b, right: `${v.b} + ${v.a}`, rv: v.b | v.a }) },
-        { name: 'Asociatividad', rule: '(A + B) + C = A + (B + C)', idea: 'Puedes agrupar como quieras.',
-          calc: (v) => ({ left: `(${v.a} + ${v.b}) + ${v.c}`, lv: (v.a | v.b) | v.c, right: `${v.a} + (${v.b} + ${v.c})`, rv: v.a | (v.b | v.c) }) }
-      ]
-    }
-  };
-  let op = 'and';
+  const gatesBox = document.querySelector('[data-gates]');
+  function paintGates() {
+    gatesBox.innerHTML = '';
+    Object.keys(OPS).forEach((name) => {
+      const z = OPS[name].f(S.a, S.b);
+      const card = document.createElement('div');
+      card.className = 'a-panel k-gate';
+      card.innerHTML = `<h3>${name}</h3><p class="k-hint">${OPS[name].hint}</p>` +
+        `<div class="k-lamp" data-on="${z}" role="img" aria-label="Luz Z ${z ? 'prendida' : 'apagada'}"></div>` +
+        `<div class="k-z">Z = ${z}</div>`;
+      gatesBox.appendChild(card);
+    });
+  }
+
+  let gameOp = 'AND';
+  let guesses = [null, null, null, null];
+  let checked = false;
+  const gamePick = document.querySelector('[data-game-pick]');
+  const gameRows = document.querySelector('[data-game-rows]');
+  const gameHint = document.querySelector('[data-game-hint]');
+  const gameScore = document.querySelector('[data-game-score]');
+
+  function paintGame() {
+    pickers(gamePick, Object.keys(OPS), gameOp, (n) => { gameOp = n; guesses = [null, null, null, null]; checked = false; paintGame(); });
+    gameHint.textContent = OPS[gameOp].hint;
+    gameRows.innerHTML = '';
+    let good = 0;
+    ROWS.forEach(([a, b], i) => {
+      const right = OPS[gameOp].f(a, b);
+      const g = guesses[i];
+      const ok = g === right;
+      if (ok) good++;
+      const tr = document.createElement('tr');
+      if (a === S.a && b === S.b) tr.className = 'k-now';
+      const mark = checked ? (ok ? '<span class="k-ok" aria-label="bien">✓</span>' : '<span class="k-bad" aria-label="mal">✗</span>') : '';
+      tr.innerHTML = `<td>${a}</td><td>${b}</td><td class="k-zc"><button type="button" class="k-zb" data-v="${g === null ? '' : g}" aria-label="Z para A=${a} y B=${b}">${g === null ? '?' : g}</button></td><td class="k-res">${mark}</td>`;
+      tr.querySelector('button').addEventListener('click', () => {
+        guesses[i] = guesses[i] === null ? 0 : guesses[i] === 0 ? 1 : null;
+        checked = false;
+        paintGame();
+      });
+      gameRows.appendChild(tr);
+    });
+    gameScore.innerHTML = checked ? (good === 4 ? '<span class="k-ok">¡Perfecto! 4 de 4</span>' : `${good} de 4. ¡Inténtalo otra vez!`) : '';
+  }
+  document.querySelector('[data-game="check"]').addEventListener('click', () => { checked = true; paintGame(); });
+  document.querySelector('[data-game="reset"]').addEventListener('click', () => { guesses = [null, null, null, null]; checked = false; paintGame(); });
+  document.querySelector('[data-game="show"]').addEventListener('click', () => { guesses = ROWS.map(([a, b]) => OPS[gameOp].f(a, b)); checked = true; paintGame(); });
+
+  function rulesFor(op) {
+    const f = OPS[op].f;
+    const e = (x, y) => `${x} ${op} ${y}`;
+    const neutral = op === 'AND' ? 1 : 0;
+    const absorb = op === 'AND' ? 0 : 1;
+    const absorbResult = op === 'OR' ? 1 : 0;
+    const comp = op === 'OR' ? 1 : 0;
+    return [
+      { name: 'Elemento neutro', what: `¿El ${neutral} deja a A igual?`, formula: `A ${op} ${neutral} = A`,
+        L: (v) => f(v.a, neutral), R: (v) => v.a, Ls: (v) => e(v.a, neutral), Rs: () => 'A',
+        no: 'NOR no tiene neutro: da lo contrario de A.' },
+      { name: 'Elemento absorbente', what: `Con un ${absorb}, siempre da ${absorbResult}.`, formula: `A ${op} ${absorb} = ${absorbResult}`,
+        L: (v) => f(v.a, absorb), R: () => absorbResult, Ls: (v) => e(v.a, absorb), Rs: () => String(absorbResult) },
+      { name: 'Idempotencia', what: 'A con A, ¿da A?', formula: `A ${op} A = A`,
+        L: (v) => f(v.a, v.a), R: (v) => v.a, Ls: (v) => e(v.a, v.a), Rs: () => 'A',
+        no: 'A NOR A da lo contrario de A.' },
+      { name: 'Complemento', what: 'A con su contrario (no A).', formula: `A ${op} no A = ${comp}`,
+        L: (v) => f(v.a, NOT(v.a)), R: () => comp, Ls: (v) => e(v.a, NOT(v.a)), Rs: () => String(comp) },
+      { name: 'Conmutatividad', what: 'Cambiar el orden no importa.', formula: `A ${op} B = B ${op} A`,
+        L: (v) => f(v.a, v.b), R: (v) => f(v.b, v.a), Ls: (v) => e(v.a, v.b), Rs: (v) => e(v.b, v.a) },
+      { name: 'Asociatividad', what: 'Los paréntesis no importan.', formula: `(A ${op} B) ${op} C = A ${op} (B ${op} C)`,
+        L: (v) => f(f(v.a, v.b), v.c), R: (v) => f(v.a, f(v.b, v.c)),
+        Ls: (v) => `(${e(v.a, v.b)}) ${op} ${v.c}`, Rs: (v) => `${v.a} ${op} (${e(v.b, v.c)})` }
+    ];
+  }
+
+  let propOp = 'AND';
+  const propPick = document.querySelector('[data-prop-pick]');
   const propsBox = document.querySelector('[data-props]');
-  const opSummary = document.querySelector('[data-op-summary]');
-  const opButtons = document.querySelectorAll('.op-pick');
+  const ALL = [];
+  [0, 1].forEach((a) => [0, 1].forEach((b) => [0, 1].forEach((c) => ALL.push({ a, b, c }))));
 
   function paintProps() {
-    opButtons.forEach((b) => {
-      const on = b.dataset.op === op;
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-      b.style.background = on ? '#2563eb' : 'rgb(var(--bg-elevated))';
-      b.style.color = on ? '#ffffff' : 'rgb(var(--text-primary))';
-      b.style.borderColor = on ? '#2563eb' : 'rgb(var(--text-tertiary))';
-    });
-    opSummary.textContent = props[op].summary;
+    pickers(propPick, ['AND', 'OR', 'NOR'], propOp, (n) => { propOp = n; paintProps(); });
     propsBox.innerHTML = '';
-    props[op].list.forEach((p) => {
-      const r = p.calc(state);
-      const rightText = /^[01]$/.test(r.right) ? r.right : (r.right === 'A' ? `A = ${r.rv}` : `${r.right} = ${r.rv}`);
+    rulesFor(propOp).forEach((r) => {
+      const fail = ALL.find((v) => r.L(v) !== r.R(v));
+      const lv = r.L(S), rv = r.R(S);
+      const rs = r.Rs(S);
+      const right = /^[01]$/.test(rs) ? rs : `${rs} → ${rv}`;
       const card = document.createElement('article');
-      card.className = 'a-panel';
-      card.innerHTML =
-        `<h3 class="a-panel__title">${p.name}</h3>` +
-        `<div style="font-family:ui-monospace,Menlo,monospace;font-size:20px;font-weight:800;margin:10px 0">${p.rule}</div>` +
-        `<p>${p.idea}</p>` +
-        `<div style="margin-top:10px;padding:10px 12px;border-radius:10px;background:rgb(var(--bg-wash));font-family:var(--font-mono);font-size:14px;line-height:1.6">` +
-        `<div>Izquierda: ${r.left} = <b>${r.lv}</b></div><div>Derecha: ${rightText}</div>` +
-        `<div style="margin-top:6px;font-family:inherit;font-weight:700">${r.lv === r.rv ? '✓ Se cumple' : '✗ No se cumple'}</div></div>`;
+      card.className = 'a-panel k-prop';
+      card.innerHTML = `<h3>${r.name}</h3><p class="k-what">${r.what}</p>` +
+        `<div class="k-formula">${r.formula}</div>` +
+        `<div class="k-live">${r.Ls(S)} → <b>${lv}</b><br>${right}<br><b class="${lv === rv ? 'k-ok' : 'k-bad'}">${lv === rv ? '✓ igual' : '✗ distinto'}</b></div>` +
+        `<span class="k-badge" data-ok="${fail ? 0 : 1}">${fail ? '✗ No siempre se cumple' : '✓ Siempre se cumple'}</span>` +
+        (fail ? `<div class="k-note">${r.no && propOp === 'NOR' ? r.no + ' ' : ''}Prueba A=${fail.a}, B=${fail.b}, C=${fail.c}.</div>` : '');
       propsBox.appendChild(card);
     });
   }
-  opButtons.forEach((b) => b.addEventListener('click', () => { op = b.dataset.op; paintProps(); }));
 
-  function paint() {
-    toggles.forEach((button) => {
-      const key = button.dataset.input;
-      const on = state[key] === 1;
-      button.textContent = String(state[key]);
-      button.setAttribute('aria-pressed', on ? 'true' : 'false');
-      button.style.background = on ? '#2563eb' : 'rgb(var(--bg-elevated))';
-      button.style.color = on ? '#ffffff' : 'rgb(var(--text-primary))';
-      button.style.borderColor = on ? '#2563eb' : 'rgb(var(--text-tertiary))';
+  function paintSwitches() {
+    document.querySelectorAll('.k-sw button').forEach((b) => {
+      const v = S[b.dataset.k];
+      b.textContent = String(v);
+      b.setAttribute('aria-pressed', v ? 'true' : 'false');
     });
-
-    const and = state.a && state.b;
-    const nor = !(state.a || state.b);
-    const xor = state.a !== state.b;
-
-    results.and.textContent = String(and ? 1 : 0);
-    results.nor.textContent = String(nor ? 1 : 0);
-    results.xor.textContent = String(xor ? 1 : 0);
-
-    explains.and.textContent = and ? 'Sí: ambas entradas están activas.' : 'No: falta al menos una entrada.';
-    explains.nor.textContent = nor ? 'Sí: ninguna entrada está activa.' : 'No: hay al menos una entrada activa.';
-    explains.xor.textContent = xor ? 'Sí: las entradas son diferentes.' : 'No: las entradas son iguales.';
-    paintProps();
   }
-
-  toggles.forEach((button) => {
-    button.addEventListener('click', () => {
-      const key = button.dataset.input;
-      state[key] = state[key] === 1 ? 0 : 1;
-      paint();
-    });
-  });
-
-  paint();
+  function paintAll() { paintSwitches(); paintGates(); paintGame(); paintProps(); }
+  document.querySelectorAll('.k-sw button').forEach((b) => b.addEventListener('click', () => { S[b.dataset.k] ^= 1; paintAll(); }));
+  paintAll();
 })();
 </script>
 
 
-      <footer class="a-footnote">Página interactiva sin dependencias externas, creada para aprender compuertas lógicas con ejemplos visuales.</footer>
+      <footer class="a-footnote">AND, OR, NOR y XOR con 0 y 1. Página interactiva sin dependencias externas.</footer>
     </main>
     <script>
 /* Devin artifact kit — self-contained behavior for standalone HTML artifacts.
